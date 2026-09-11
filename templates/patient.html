@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Your OPD Token</title><link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head>
+<body>
+<nav><div class="brand">🏥 OPD <span>SmartQueue</span></div><a href="/">← New Token</a></nav>
+<main class="center">
+  <div class="card token-card">
+    <div class="pill">YOUR OPD STATUS</div>
+    <h1>Token <span>#{{token}}</span></h1>
+    <p class="muted">{{d.doctor}} • {{dept}}</p>
+    <div class="big-wait">{{minutes}} <small>min</small></div>
+    <p>Estimated waiting time</p>
+    <div class="range">🟢 Live estimate • changes as the queue moves</div>
+    <div class="stats">
+      <div><b>{{ahead}}</b><small>Patients ahead</small></div>
+      <div><b>{{d.current}}</b><small>Current token</small></div>
+      <div><b>{{d.avg_time}}m</b><small>Avg. consultation</small></div>
+    </div>
+    <a class="button secondary" href="/patient?department={{dept}}&token={{token}}">↻ Refresh status</a>
+  </div>
+</main>
+</body></html>
